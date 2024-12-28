@@ -1,0 +1,189 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* BASE */
+
+:root {
+  --main-color: #8bb4ad;
+  --hover-color: #668f92;
+  --text-color: #2f4858;
+  font-family: "League Spartan", serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-background text-text;
+}
+
+/* Scrollbar */
+
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  border-radius: 5px;
+  background: #ffffff00;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--main-color);
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--hover-color);
+}
+
+/* Typography */
+
+.headline-1,
+.headline-2 {
+  @apply max-w-max;
+  background: -webkit-linear-gradient(
+    0deg,
+    var(--text-color),
+    var(--hover-color)
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.headline-3 {
+  @apply max-w-max;
+  background: -webkit-linear-gradient(
+    180deg,
+    var(--text-color),
+    var(--hover-color)
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.headline-1 {
+  @apply text-5xl leading-tight font-semibold lg:text-[55px] lg:leading-[1.15];
+}
+
+.headline-2,
+.headline-3 {
+  @apply text-3xl lg:text-4xl lg:leading-tight font-semibold;
+}
+
+.title-1 {
+  @apply text-[22px] font-normal;
+}
+
+.typing-text {
+  @apply relative w-[max-content] before:absolute before:inset-0 before:animate-typwriter before:bg-background after:absolute after:inset-0 after:w-[0.07em] after:animate-caret after:bg-text/60;
+}
+
+/* Utilities */
+
+.material-symbols-rounded {
+  @apply w-[1em] h-[1em] overflow-hidden;
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+}
+
+.container {
+  @apply px-4 mx-auto lg:px-8 xl:max-w-6xl;
+}
+
+.img-box {
+  @apply bg-strong shadow-sm shadow-stronger overflow-hidden;
+}
+
+.img-cover {
+  @apply w-full h-full object-cover;
+}
+
+.section {
+  @apply pt-20 lg:pt-32;
+}
+
+.reveal-up {
+  @apply translate-y-20 opacity-0;
+}
+
+/* COMPONENTS */
+
+/* Menu Button */
+
+.menu-btn {
+  @apply w-10 h-10 grid place-items-center bg-strong rounded-xl ring-inset ring-1 ring-stronger/[0.02] backdrop-blur-2xl shadow-sm shadow-stronger hover:shadow-lg hover:shadow-stronger hover:bg-stronger transition-[transform,background-color] active:scale-95;
+}
+
+/* Navbar */
+
+.navbar {
+  @apply absolute top-full mt-2 right-0 min-w-40 p-2 bg-strong_tranparent rounded-2xl ring-inset ring-1 ring-stronger/5 scale-90 isolate blur-sm backdrop-blur-2xl opacity-0 invisible transition-[opacity,transform,filter] md:static md:flex md:items-center md:mt-0 md:opacity-100 md:blur-0 md:visible md:scale-100;
+}
+
+.navbar.active {
+  @apply opacity-100 scale-100 blur-0 visible;
+}
+
+.nav-link {
+  @apply grid items-center h-9 px-4 text-sm font-medium tracking-wide text-text/70 hover:text-text/85 transition-colors;
+}
+
+.nav-link.active {
+  @apply text-text duration-500;
+}
+
+.navbar .active-box {
+  @apply absolute bg-background rounded-lg -z-10 transition-[top] duration-200 md:transition-[left] md:duration-200;
+}
+
+/* Button */
+
+.btn {
+  @apply max-w-max h-9 flex items-center gap-2 px-4 rounded-xl font-medium text-sm ring-1 ring-stronger/5 ring-inset transition-[background-color];
+}
+
+.btn-secondary {
+  @apply bg-strong text-text active:bg-strong/70;
+}
+
+.btn-border {
+  @apply bg-background text-text  active:bg-background/70;
+}
+
+.btn .material-symbols-rounded {
+  @apply text-[18px];
+}
+
+.btn:has(.material-symbols-rounded) {
+  @apply pr-3;
+}
+
+.btn-primary {
+  @apply h-11 bg-strong hover:bg-stronger active:bg-strong;
+}
+
+.btn-outline {
+  @apply h-11 bg-light/50 hover:bg-light active:bg-light/50;
+}
+
+/* Text Field */
+
+.label {
+  @apply block text-text text-sm font-normal mb-2;
+}
+
+.text-field {
+  @apply block outline-none w-full px-3 py-3 text-sm bg-light/30 rounded-xl ring-1 ring-inset ring-stronger/20 transition-shadow hover:ring-stronger/50 focus:ring-stronger focus:ring-2;
+}
+
+.text-field::placeholder {
+  @apply text-text/50;
+}
