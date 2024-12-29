@@ -18,6 +18,10 @@ const skillItem = [
     label: "JavaScript",
   },
   {
+    imgSrc: "/images/skills/typescript.svg",
+    label: "TypeScript",
+  },
+  {
     imgSrc: "/images/skills/nodejs.svg",
     label: "NodeJS",
   },
