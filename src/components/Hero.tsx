@@ -1,5 +1,5 @@
 import Button from "./Button";
-import CV from "/CV/CV.pdf";
+import CV from "/CV/RafaelRegoCV.pdf";
 
 const Hero = () => {
   return (
