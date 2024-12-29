@@ -25,10 +25,11 @@ const App = () => {
         y: 0,
         opacity: 1,
         duration: 1,
-        ease: "power2.out",
+        ease: "power2.inOut",
         scrollTrigger: {
           trigger: element,
-          end: "bottom 70%",
+          start: "-200 bottom",
+          end: "bottom 100%",
           scrub: true,
         },
       });

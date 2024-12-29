@@ -57,7 +57,6 @@ export const socialLinks = [
   },
 ];
 
-//Add hover animations on links
 const Contact = () => {
   return (
     <section id="contact" className="section mb-28">
