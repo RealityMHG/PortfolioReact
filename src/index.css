@@ -71,7 +71,7 @@ body {
 }
 
 .headline-1 {
-  @apply text-3xl leading-tight font-semibold lg:text-[55px] lg:leading-[1.15];
+  @apply text-4xl leading-tight font-semibold lg:text-[55px] lg:leading-[1.15];
 }
 
 .headline-2,
