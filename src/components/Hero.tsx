@@ -1,4 +1,5 @@
 import Button from "./Button";
+import CV from "/CV/CV.pdf";
 
 const Hero = () => {
   return (
@@ -27,9 +28,12 @@ const Hero = () => {
           </h2>
           <div className="flex items-center gap-3">
             <Button
+              href={CV}
+              download="RafaelRegoCV"
               label="Download CV"
               icon="download"
               variant="primary"
+              target="_blank"
             ></Button>
             <Button
               href="#about"
