@@ -32,7 +32,7 @@ const Button = ({
     );
   } else if (download) {
     return (
-      <a href={href} target={target} download className={baseClass}>
+      <a href={href} target={target} download={download} className={baseClass}>
         {label}
         {icon && (
           <span className="material-symbols-rounded" aria-hidden="true">
