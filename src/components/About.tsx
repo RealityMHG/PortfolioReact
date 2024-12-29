@@ -17,11 +17,11 @@ const About = () => {
           <p className="mb-4 md:mb-8 md:text-lg md:max-w-[60ch]">
             I have a passion for crafting smooth, intuitive digital experiences.
             From responsive front-end design to scalable back-end logic, I love
-            tackling every part of the development journey. My toolkit includes
-            several languages and frameworks and I'm always exploring new
-            technologies to keep my work sharp and future-ready. I'm all about
-            clean code, creative problem-solving, and making sure each project
-            brings real value to users. Let's build something amazing together!
+            tackling every part of the development journey.<p></p> My toolkit
+            includes several languages and frameworks and I'm always exploring
+            new technologies to keep my work sharp and future-ready. I'm all
+            about clean code, creative problem-solving, and making sure each
+            project brings real value to users.
           </p>
 
           <div className="flex flex-wrap items-center gap-4 md:gap-7">
