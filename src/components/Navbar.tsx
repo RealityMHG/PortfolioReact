@@ -1,4 +1,4 @@
-import { useRef, useEffect, useState, MouseEventHandler } from "react";
+import { MouseEventHandler, useEffect, useRef, useState } from 'react';
 
 interface NavbarProps {
   navOpen: boolean;
@@ -6,11 +6,11 @@ interface NavbarProps {
 }
 
 export const navItems = [
-  { label: "Home", link: "#home" },
-  { label: "About", link: "#about" },
-  { label: "Skills", link: "#skills" },
-  { label: "Work", link: "#work" },
-  { label: "Contact", link: "#contact" },
+  { label: 'Home', link: '#home' },
+  { label: 'About', link: '#about' },
+  { label: 'Skills', link: '#skills' },
+  { label: 'Work', link: '#work' },
+  { label: 'Contact', link: '#contact' },
 ];
 
 const Navbar = ({ navOpen, section }: NavbarProps) => {
@@ -30,11 +30,9 @@ const Navbar = ({ navOpen, section }: NavbarProps) => {
 
   useEffect(() => {
     initActiveBox();
-    setActiveIndex(
-      navItems.findIndex(({ label }) => label.toLowerCase() === section)
-    );
-    window.addEventListener("resize", initActiveBox);
-    return () => window.removeEventListener("resize", initActiveBox);
+    setActiveIndex(navItems.findIndex(({ label }) => label.toLowerCase() === section));
+    window.addEventListener('resize', initActiveBox);
+    return () => window.removeEventListener('resize', initActiveBox);
   }, [activeIndex, section]);
 
   const handleLinkClick: MouseEventHandler<HTMLAnchorElement> = (event) => {
@@ -43,16 +41,12 @@ const Navbar = ({ navOpen, section }: NavbarProps) => {
   };
 
   return (
-    <nav
-      className={`navbar shadow-sm shadow-stronger ${navOpen ? "active" : ""}`}
-    >
+    <nav className={`navbar shadow-sm shadow-stronger ${navOpen ? 'active' : ''}`}>
       {navItems.map(({ label, link }, index) => (
         <a
           href={link}
           key={index}
-          className={`nav-link ${activeIndex === index && "active"} ${
-            index === 4 && "md:hidden"
-          }`}
+          className={`nav-link ${activeIndex === index && 'active'} ${index === 4 && 'md:hidden'}`}
           ref={(el) => (navLinks.current[index] = el)}
           onClick={handleLinkClick}
         >

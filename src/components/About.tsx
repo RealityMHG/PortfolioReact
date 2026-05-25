@@ -1,11 +1,19 @@
 const aboutItems = [
   {
-    label: "Projects done",
+    label: 'Personal Projects Built',
     number: 20,
   },
   {
-    label: "Years of experience",
-    number: 1,
+    label: 'Professional Projects Delivered',
+    number: 2,
+  },
+  {
+    label: 'Years of Programming',
+    number: 6,
+  },
+  {
+    label: 'Years of Professional Experience',
+    number: 2,
   },
 ];
 
@@ -15,22 +23,16 @@ const About = () => {
       <div className="container">
         <div className="bg-light/50 p-7 rounded-2xl shadow-sm shadow-stronger md:p-12 reveal-up">
           <p className="mb-4 md:mb-8 md:text-lg md:max-w-[60ch]">
-            I have a passion for crafting smooth, intuitive digital experiences.
-            From responsive front-end design to scalable back-end logic, I love
-            tackling every part of the development journey.<p></p> My toolkit
-            includes several languages and frameworks and I'm always exploring
-            new technologies to keep my work sharp and updated. I'm all about
-            clean code, creative problem-solving, and making sure each project
-            brings real value to users.
+            Full-Stack Developer focused on React, TypeScript, .NET/C#, and SQL. I build stable,
+            consistent, and well-structured applications, with experience in front-end technical
+            leadership and delivering high-quality solutions.
           </p>
 
           <div className="flex flex-wrap items-center gap-4 md:gap-7">
             {aboutItems.map(({ label, number }) => (
               <div key={label}>
                 <div className="flex items-center md:mb-2">
-                  <span className="text-2xl font-semibold md:text-4xl">
-                    {number}
-                  </span>
+                  <span className="text-2xl font-semibold md:text-4xl">{number}</span>
                 </div>
                 <p className="text-sm text-text/70">{label}</p>
               </div>
