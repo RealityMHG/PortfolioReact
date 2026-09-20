@@ -1,79 +1,61 @@
-import About from './components/About';
-import Contact from './components/Contact';
-import Header from './components/Header';
-import Hero from './components/Hero';
-import Skills from './components/Skills';
-import Work from './components/Work';
+import { useEffect, useRef } from "react";
+import Header from "./components/Header";
+import Hero from "./components/Hero";
+import CaseStudy from "./components/CaseStudy";
+import Experience from "./components/Experience";
+import About from "./components/About";
+import Contact from "./components/Contact";
+import CustomCursor from "./components/CustomCursor";
 
-import { useGSAP } from '@gsap/react';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { ReactLenis } from 'lenis/react';
-import { useState } from 'react';
+export default function App() {
+  const mainRef = useRef<HTMLElement>(null);
 
-/* Register ScrollTrigger with GSAP */
-gsap.registerPlugin(useGSAP, ScrollTrigger);
-
-const App = () => {
-  const [visibleSection, setVisibleSection] = useState<string>('home');
-
-  useGSAP(() => {
-    const elements = gsap.utils.toArray<HTMLElement>('.reveal-up');
-
-    elements.forEach((element) => {
-      gsap.to(element, {
-        y: 0,
-        opacity: 1,
-        duration: 1,
-        ease: 'power2.inOut',
-        scrollTrigger: {
-          trigger: element,
-          start: '-200 bottom',
-          end: 'bottom 100%',
-          scrub: true,
-        },
-      });
-    });
-  });
-
-  useGSAP(() => {
-    const sections = gsap.utils.toArray<HTMLElement>('section');
-
-    sections.forEach((section, index) => {
-      gsap.to(section, {
-        scrollTrigger: {
-          trigger: section,
-          start: 'top center',
-          end: 'bottom center',
-          onEnter: () => setVisibleSection(section.id),
-          onEnterBack: () => setVisibleSection(section.id),
-          onLeave: () => {
-            if (index < sections.length - 1) {
-              setVisibleSection(sections[index + 1].id);
-            }
-          },
-          onLeaveBack: () => {
-            if (index > 0) {
-              setVisibleSection(sections[index - 1].id);
-            }
-          },
-        },
-      });
-    });
-  });
+  useEffect(() => {
+    if (!("IntersectionObserver" in window)) return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-revealed");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12 },
+    );
+    mainRef.current
+      ?.querySelectorAll("[data-reveal]")
+      .forEach((element) => observer.observe(element));
+    return () => observer.disconnect();
+  }, []);
 
   return (
-    <ReactLenis root>
-      <Header section={visibleSection}></Header>
-      <main>
-        <Hero></Hero>
-        <About></About>
-        <Skills></Skills>
-        <Work></Work>
-        <Contact></Contact>
+    <>
+      <CustomCursor />
+      <a className="skip-link" href="#main">
+        Skip to content
+      </a>
+      <Header />
+      <main id="main" ref={mainRef} tabIndex={-1}>
+        <Hero />
+        <CaseStudy />
+        <Experience />
+        <About />
+        <Contact />
       </main>
-    </ReactLenis>
+      <footer className="site-footer container">
+        <a
+          className="wordmark"
+          href="#home"
+          aria-label="Rafael Rêgo, back to top"
+        >
+          rafael rêgo<span>.</span>
+        </a>
+        <p>© {new Date().getFullYear()} Rafael Rêgo</p>
+        <a className="text-link" href="#home">
+          Back to top <span aria-hidden="true">↑</span>
+        </a>
+      </footer>
+    </>
   );
-};
-
-export default App;
+}

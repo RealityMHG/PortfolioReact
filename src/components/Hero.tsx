@@ -1,62 +1,72 @@
-import Button from "./Button";
-import CV from "/CV/RafaelRegoCV.pdf";
+import Icon from "./Icon";
 
-const Hero = () => {
+export default function Hero() {
   return (
-    <section className="pt-64 lg:pt-16" id="home">
-      <div className="container items-center lg:grid lg:grid-cols-2 lg:gap-10">
-        <div>
-          <div className="flex items-center gap-3">
-            <figure className="img-box w-9 h-9 rounded-lg">
-              <img
-                src="/images/profilepic.png"
-                width={40}
-                height={40}
-                alt="Rafael portrait"
-                className="img-cover"
-              />
-            </figure>
-            <div className="flex items-center gap-1.5 text-strong text-sm tracking-wide">
-              <span className="relative w-2 h-2 rounded-full bg-green">
-                <span className="absolute inset-0 rounded-full bg-green animate-ping"></span>
-              </span>
-              Available for work!
-            </div>
-          </div>
-          <h2 className="headline-1 typing-text max-w-[10ch] sm:max-w-[20ch lg:max-w-[15ch] mt-5 mb-8 lg:mb-10">
-            Full Stack Developer
-          </h2>
-          <div className="flex items-center gap-3">
-            <Button
-              href={CV}
-              download="RafaelRegoCV"
-              label="Download CV"
-              icon="download"
-              variant="primary"
-              target="_blank"
-            ></Button>
-            <Button
-              href="#about"
-              label="Scroll down"
-              icon="arrow_downward"
-              variant="outline"
-            ></Button>
+    <section
+      id="home"
+      className="hero container"
+      aria-labelledby="hero-heading"
+      tabIndex={-1}
+    >
+      <div className="hero-eyebrow eyebrow">
+        <span>
+          <span className="status-dot" /> Software Engineer
+        </span>
+        <span>Lisbon, Portugal</span>
+      </div>
+      <div className="hero-main">
+        <div className="hero-copy">
+          <p className="hero-intro">Hi, I’m Rafael Rêgo.</p>
+          <h1 id="hero-heading">
+            Complex ideas.
+            <br />
+            <em>Clear interfaces.</em>
+          </h1>
+          <p className="hero-description">
+            I build React and TypeScript applications that turn complex business
+            workflows into clear, maintainable interfaces.
+          </p>
+          <div className="hero-actions">
+            <a className="button button-dark" href="#case-study">
+              See the case study <Icon name="down" />
+            </a>
+            <a className="text-link" href="#contact">
+              Let’s talk <Icon />
+            </a>
           </div>
         </div>
-        <div className="hidden lg:block">
-          <figure className="w-full max-w-[480px] ml-auto bg-gradient-to-t from-strong via-25% via-strong/40 to-65% rounded-[60px] overflow-hidden">
-            <img
-              src="/images/heroPic.png"
-              width={656}
-              height={800}
-              alt="Rafael Rego"
-              className="w-full"
-            />
-          </figure>
+        <div className="hero-focus">
+          <span className="hero-flourish" aria-hidden="true">
+            ✳
+          </span>
+          <p className="eyebrow">How I can help</p>
+          <p className="hero-focus-title">
+            Interfaces for
+            <br />
+            <em>real workflows.</em>
+          </p>
+          <p>
+            Complex forms, data-heavy interfaces and API integration—for new
+            ideas and existing products.
+          </p>
         </div>
+      </div>
+      <div className="hero-bottom">
+        <p>
+          <span className="eyebrow">Currently</span> Front-End Developer{" "}
+          <span className="muted">at</span> Axians
+        </p>
+        <p className="hero-stack">
+          React <span>/</span> TypeScript <span>/</span> .NET <span>/</span> SQL
+        </p>
+        <a
+          href="#case-study"
+          className="scroll-link"
+          aria-label="Scroll to the case study"
+        >
+          <Icon name="down" />
+        </a>
       </div>
     </section>
   );
-};
-
-export default Hero;
+}

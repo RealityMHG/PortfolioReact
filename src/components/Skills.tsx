@@ -1,65 +1,31 @@
-import SkillCard from './SkillCard';
+import { skillGroups } from "../data/portfolio";
 
-const skillItem = [
-  {
-    imgSrc: '/images/skills/react.svg',
-    label: 'React',
-  },
-  {
-    imgSrc: '/images/skills/typescript.svg',
-    label: 'TypeScript',
-  },
-  {
-    imgSrc: '/images/skills/csharp.svg',
-    label: 'C#',
-  },
-  {
-    imgSrc: '/images/skills/java.svg',
-    label: 'Java',
-  },
-  {
-    imgSrc: '/images/skills/html5.svg',
-    label: 'HTML',
-  },
-  {
-    imgSrc: '/images/skills/css_old.svg',
-    label: 'CSS',
-  },
-  {
-    imgSrc: '/images/skills/javascript.svg',
-    label: 'JavaScript',
-  },
-  {
-    imgSrc: '/images/skills/nodejs.svg',
-    label: 'NodeJS',
-  },
-  {
-    imgSrc: '/images/skills/python.svg',
-    label: 'Python',
-  },
-  {
-    imgSrc: '/images/skills/mongodb.svg',
-    label: 'MongoDB',
-  },
-  {
-    imgSrc: '/images/skills/tailwindcss.svg',
-    label: 'Tailwind CSS',
-  },
-];
-
-const Skills = () => {
+export default function Skills() {
   return (
-    <section id="skills" className="section">
-      <div className="container">
-        <h2 className="headline-3 reveal-up mb-8">Essential Tools I Use</h2>
-        <div className="grid gap-3 grid-cols-[repeat(auto-fill,_minmax(300px,_1fr))]">
-          {skillItem.map(({ label, imgSrc }) => (
-            <SkillCard key={label} label={label} imgSrc={imgSrc} classes="reveal-up"></SkillCard>
-          ))}
-        </div>
+    <div className="skills" id="skills">
+      <div className="subsection-heading">
+        <h3>My toolkit</h3>
+        <span className="eyebrow">Across the stack</span>
       </div>
-    </section>
+      {skillGroups.map(({ title, items }, index) => (
+        <div className="skill-row" key={title} data-reveal>
+          <h4>
+            <span className="skill-number" aria-hidden="true">
+              0{index + 1}
+            </span>
+            {title}
+          </h4>
+          <ul>
+            {items.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
+        </div>
+      ))}
+      <p className="toolkit-note">
+        My day-to-day focus is React and TypeScript. My delivery experience
+        includes exposure to CI/CD, Docker, Kubernetes and Helm.
+      </p>
+    </div>
   );
-};
-
-export default Skills;
+}

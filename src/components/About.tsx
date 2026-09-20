@@ -1,54 +1,93 @@
-const aboutItems = [
-  {
-    label: 'Personal Projects Built',
-    number: 20,
-  },
-  {
-    label: 'Professional Projects Delivered',
-    number: 2,
-  },
-  {
-    label: 'Years of Programming',
-    number: 6,
-  },
-  {
-    label: 'Years of Professional Experience',
-    number: 2,
-  },
-];
+import Skills from "./Skills";
+import Icon from "./Icon";
+import { profile } from "../data/portfolio";
 
-const About = () => {
+export default function About() {
   return (
-    <section id="about" className="section">
-      <div className="container">
-        <div className="bg-light/50 p-7 rounded-2xl shadow-sm shadow-stronger md:p-12 reveal-up">
-          <p className="mb-4 md:mb-8 md:text-lg md:max-w-[60ch]">
-            Full-Stack Developer focused on React, TypeScript, .NET/C#, and SQL. I build stable,
-            consistent, and well-structured applications, with experience in front-end technical
-            leadership and delivering high-quality solutions.
-          </p>
-
-          <div className="flex flex-wrap items-center gap-4 md:gap-7">
-            {aboutItems.map(({ label, number }) => (
-              <div key={label}>
-                <div className="flex items-center md:mb-2">
-                  <span className="text-2xl font-semibold md:text-4xl">{number}</span>
-                </div>
-                <p className="text-sm text-text/70">{label}</p>
+    <section
+      className="about"
+      id="about"
+      aria-labelledby="about-heading"
+      tabIndex={-1}
+    >
+      <div className="container section-space">
+        <div className="about-intro" data-reveal>
+          <div>
+            <p className="eyebrow section-index">03 / About & skills</p>
+            <h2 id="about-heading">
+              Curious by nature.
+              <br />
+              <em>Thoughtful by practice.</em>
+            </h2>
+          </div>
+          <div className="about-copy">
+            <p>
+              I’m Rafael, a software engineer in Lisbon. I like untangling
+              complex interfaces, building useful things and leaving code easier
+              for the next person to work with.
+            </p>
+            <p className="interest-note">
+              <span className="eyebrow">Currently curious about</span>
+              AI-assisted development, LLMs and workflow automation.
+            </p>
+          </div>
+        </div>
+        <Skills />
+        <div className="background-grid" data-reveal>
+          <div className="education">
+            <h3>Education</h3>
+            <p className="school">ISCTE — University Institute of Lisbon</p>
+            <div className="education-entry">
+              <div>
+                <h4>BSc in Computer Engineering</h4>
+                <p>2018 — 2021</p>
               </div>
-            ))}
-            <img
-              src="/images/logo.png"
-              alt="Logo"
-              width={50}
-              height={50}
-              className="ml-auto shadow-sm shadow-stronger md:w-[60px] md:h-[60px] rounded-lg"
-            ></img>
+            </div>
+            <div className="education-entry">
+              <div>
+                <h4>Master’s in Computer Engineering</h4>
+                <p>2021 — 2022 · Attended, not completed</p>
+              </div>
+            </div>
+          </div>
+          <div className="languages">
+            <h3>A little more context</h3>
+            <dl>
+              <div>
+                <dt>Based in</dt>
+                <dd>Lisbon, Portugal</dd>
+              </div>
+              <div>
+                <dt>Portuguese</dt>
+                <dd>Native</dd>
+              </div>
+              <div>
+                <dt>English</dt>
+                <dd>Fluent</dd>
+              </div>
+            </dl>
+            <div className="cv-languages">
+              <span className="eyebrow">Download CV</span>
+              <a
+                href={profile.cv}
+                download="Rafael-Rego-CV-EN.pdf"
+                className="text-link"
+                lang="en"
+              >
+                English <Icon name="download" />
+              </a>
+              <a
+                href={profile.cvPortuguese}
+                download="Rafael-Rego-CV-PT.pdf"
+                className="text-link"
+                lang="pt"
+              >
+                Português <Icon name="download" />
+              </a>
+            </div>
           </div>
         </div>
       </div>
     </section>
   );
-};
-
-export default About;
+}
