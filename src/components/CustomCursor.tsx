@@ -14,8 +14,8 @@ export default function CustomCursor() {
     const signature = signatureRef.current;
     if (!dot || !signature) return;
 
-    const preference = window.matchMedia(
-      "(hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference)",
+    const pointerCapability = window.matchMedia(
+      "(hover: hover) and (pointer: fine)",
     );
     const root = document.documentElement;
     let frame = 0;
@@ -57,7 +57,7 @@ export default function CustomCursor() {
 
     const move = (event: PointerEvent) => {
       if (
-        !preference.matches ||
+        !pointerCapability.matches ||
         event.pointerType !== "mouse" ||
         (event.target instanceof Element &&
           event.target.closest(nativeSelector))
@@ -120,7 +120,7 @@ export default function CustomCursor() {
     window.addEventListener("scroll", scroll, { passive: true, capture: true });
     root.addEventListener("pointerleave", hide);
     document.addEventListener("visibilitychange", hide);
-    preference.addEventListener("change", hide);
+    pointerCapability.addEventListener("change", hide);
     return () => {
       hide();
       window.removeEventListener("pointermove", move);
@@ -132,7 +132,7 @@ export default function CustomCursor() {
       window.removeEventListener("scroll", scroll, true);
       root.removeEventListener("pointerleave", hide);
       document.removeEventListener("visibilitychange", hide);
-      preference.removeEventListener("change", hide);
+      pointerCapability.removeEventListener("change", hide);
     };
   }, []);
 
