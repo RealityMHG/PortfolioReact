@@ -1,4 +1,5 @@
 import Icon from "./Icon";
+import { profile } from "../data/portfolio";
 
 export default function Hero() {
   return (
@@ -27,13 +28,20 @@ export default function Hero() {
             workflows into clear, maintainable interfaces.
           </p>
           <div className="hero-actions">
-            <a className="button button-dark" href="#case-study">
-              See the case study <Icon name="down" />
+            <a className="button button-dark" href="#experience">
+              View experience <Icon name="down" />
             </a>
-            <a className="text-link" href="#contact">
-              Let’s talk <Icon />
+            <a className="text-link" href="#case-study">
+              View case study <Icon />
             </a>
           </div>
+          <a
+            className="hero-cv-link"
+            href={profile.cv}
+            download="Rafael-Rego-CV-EN.pdf"
+          >
+            Download CV <Icon name="download" />
+          </a>
         </div>
         <div className="hero-focus">
           <span className="hero-flourish" aria-hidden="true">
@@ -60,9 +68,9 @@ export default function Hero() {
           React <span>/</span> TypeScript <span>/</span> .NET <span>/</span> SQL
         </p>
         <a
-          href="#case-study"
+          href="#experience"
           className="scroll-link"
-          aria-label="Scroll to the case study"
+          aria-label="Scroll to professional experience"
         >
           <Icon name="down" />
         </a>

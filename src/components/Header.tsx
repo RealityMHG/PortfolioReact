@@ -117,7 +117,7 @@ export default function Header() {
             download="Rafael-Rego-CV-EN.pdf"
             className="nav-cv"
           >
-            Résumé <Icon name="download" />
+            CV <Icon name="download" />
           </a>
         </nav>
       </div>

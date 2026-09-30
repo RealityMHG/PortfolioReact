@@ -22,9 +22,9 @@ export default function About() {
           </div>
           <div className="about-copy">
             <p>
-              I’m Rafael, a software engineer in Lisbon. I like untangling
-              complex interfaces, building useful things and leaving code easier
-              for the next person to work with.
+              I’m Rafael, a software engineer in Lisbon. I enjoy untangling
+              complex interfaces, finding reusable patterns and leaving code
+              easier for the next developer to change.
             </p>
             <p className="interest-note">
               <span className="eyebrow">Currently curious about</span>

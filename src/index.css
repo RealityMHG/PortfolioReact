@@ -320,6 +320,25 @@ main[tabindex]:focus {
   gap: 30px;
   margin-top: 34px;
 }
+.hero-cv-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  min-height: 44px;
+  margin-top: 12px;
+  color: var(--muted);
+  font-size: 11px;
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-underline-offset: 4px;
+  transition: text-decoration-color 0.2s;
+}
+.hero-cv-link:hover {
+  text-decoration-color: currentColor;
+}
+.hero-cv-link .icon {
+  width: 14px;
+}
 .hero-bottom {
   display: flex;
   align-items: center;
@@ -332,7 +351,7 @@ main[tabindex]:focus {
 .hero-bottom .eyebrow {
   display: block;
   color: var(--muted);
-  font-size: 8px;
+  font-size: 10px;
   margin-bottom: 5px;
 }
 .hero-stack {
@@ -512,7 +531,7 @@ h2 em {
   display: block;
   margin-bottom: 8px;
   color: var(--blue);
-  font-size: 9px;
+  font-size: 10px;
 }
 .skills {
   margin-top: 56px;
@@ -530,7 +549,7 @@ h2 em {
 }
 .subsection-heading .eyebrow {
   color: var(--muted);
-  font-size: 9px;
+  font-size: 10px;
 }
 .skill-row {
   display: grid;
@@ -544,7 +563,7 @@ h2 em {
 }
 .skill-number {
   color: #66695f;
-  font-size: 9px;
+  font-size: 10px;
   margin-right: 24px;
   font-weight: 400;
 }
@@ -618,7 +637,7 @@ h2 em {
 }
 .cv-languages > .eyebrow {
   margin-right: auto;
-  font-size: 8px;
+  font-size: 10px;
   color: var(--muted);
 }
 .cv-languages .text-link {
@@ -676,7 +695,7 @@ h2 em {
 }
 .email-block > .eyebrow {
   color: #d0d9e2;
-  font-size: 8px;
+  font-size: 10px;
 }
 .email-row {
   display: flex;
@@ -906,7 +925,7 @@ h2 em {
     padding-top: 25px;
   }
   .hero-eyebrow {
-    font-size: 8px;
+    font-size: 10px;
     letter-spacing: 0.09em;
   }
   .hero-main {
@@ -941,6 +960,9 @@ h2 em {
   }
   .hero-actions .icon {
     width: 15px;
+  }
+  .hero-cv-link {
+    font-size: 11px;
   }
   .hero-bottom {
     font-size: 10px;
@@ -1067,14 +1089,17 @@ h2 em {
   .hero-actions .text-link {
     font-size: 11px;
   }
+  .hero-cv-link {
+    margin-top: 8px;
+  }
   .hero-bottom {
     padding-block: 20px;
   }
   .hero-bottom p {
-    font-size: 9px;
+    font-size: 10px;
   }
   .experience-meta .eyebrow {
-    font-size: 9px;
+    font-size: 10px;
   }
   .role-heading h3 {
     font-size: 22px;
@@ -1161,7 +1186,7 @@ h2 em {
 }
 .hero-focus > .eyebrow {
   color: var(--blue);
-  font-size: 9px;
+  font-size: 10px;
   margin-bottom: 22px;
 }
 .hero-focus .hero-focus-title {

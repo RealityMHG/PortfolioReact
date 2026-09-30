@@ -43,12 +43,12 @@ export default function Contact() {
           </h2>
           <div className="contact-copy">
             <p>
-              Building a business application or improving an existing product?
-              Tell me what you need, where things stand and your expected
-              timeline.
+              Hiring for a software engineering role or building a product that
+              needs thoughtful front-end work? I’d be glad to hear about the
+              team and the problem you’re solving.
             </p>
             <a className="button button-light" href={`mailto:${profile.email}`}>
-              Discuss your project <Icon />
+              Start a conversation <Icon />
             </a>
           </div>
         </div>
